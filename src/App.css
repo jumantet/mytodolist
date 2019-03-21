@@ -2,7 +2,7 @@ html {
   --background-color: #66cdaa;
   background-color: var(--background-color);
   --category-background-color: #dcdcdc;
-  --main-font-color: #3cb371;
+  --main-font-color: #66cdaa;
   --second-font-color: black;
   display: flex;
   justify-content: center;
@@ -127,7 +127,7 @@ html {
 }
 
 .fa-times {
-  color: #fa8072;
+  color: white;
 }
 
 .fa-check {
@@ -154,5 +154,5 @@ html {
 
 .bin {
   filter: brightness(0) invert(1);
-  width: 100px;
+  width: 80px;
 }

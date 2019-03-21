@@ -4,8 +4,8 @@ import { animateScroll } from "react-scroll";
 
 const customStyles = {
   content: {
-    top: "0%",
-    right: "0%",
+    top: "-1%",
+    right: "-1%",
     left: "auto",
     bottom: "auto",
     height: "500px",
@@ -14,7 +14,7 @@ const customStyles = {
     display: "flex",
     justifyContent: "center",
     backgroundColor: "var(--background-color)",
-    border: "solid 5px var(--main-font-color)",
+    border: "solid 2px var(--category-background-color)",
     overlfow: "scroll"
   },
 
@@ -35,6 +35,7 @@ class ModalChat extends React.Component {
   handleSubmitMessage = event => {
     event.preventDefault();
     let message = this.state.message;
+    this.setState({ message: "" });
     this.props.handleSendMessage(message);
   };
 
@@ -212,7 +213,7 @@ class ModalChat extends React.Component {
                       padding: "5px",
                       resize: "none"
                     }}
-                    value={this.state.nameTask}
+                    value={this.state.message}
                     onChange={this.handleChange}
                   />
                   <div

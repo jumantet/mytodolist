@@ -3,8 +3,8 @@ import Modal from "react-modal";
 
 const customStyles = {
   content: {
-    top: "0%",
-    right: "0%",
+    top: "-1%",
+    right: "-1%",
     left: "auto",
     bottom: "auto",
     height: "500px",
@@ -12,7 +12,7 @@ const customStyles = {
     display: "flex",
     justifyContent: "center",
     backgroundColor: "var(--background-color)",
-    border: "solid 5px var(--main-font-color)",
+    border: "solid 2px var(--category-background-color)",
     overlfow: "scroll"
   },
 
