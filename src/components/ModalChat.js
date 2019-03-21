@@ -98,7 +98,7 @@ class ModalChat extends React.Component {
                 justifyContent: "center",
                 borderRadius: "5px",
                 border: "solid 2px var(--main-font-color)",
-                backgroundColor: "var(--category-background-color)",
+                backgroundColor: "#dcdcdcad",
                 marginBottom: "10px"
               }}
             >
