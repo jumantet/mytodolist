@@ -1,26 +1,47 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Cookies from "js-cookie";
+import Home from "./containers/Home";
+import Todolist from "./containers/Todolist";
+import Project from "./containers/Project";
+import "./App.css";
 
 class App extends Component {
+  state = {
+    userName: Cookies.get("username") || null,
+    userId: null,
+    token: Cookies.get("token") || null
+  };
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <>
+          <Switch>
+            <Route
+              exact={true}
+              path="/"
+              render={props => <Home {...props} />}
+            />
+            <Route
+              exact={true}
+              path="/todolist"
+              render={props => (
+                <Todolist
+                  picture={Cookies.get("picture")}
+                  userName={this.state.userName}
+                  token={this.state.token}
+                  {...props}
+                />
+              )}
+            />
+            <Route
+              exact={true}
+              path="/project"
+              render={props => <Project {...props} />}
+            />
+          </Switch>
+        </>
+      </Router>
     );
   }
 }
