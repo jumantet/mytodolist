@@ -131,7 +131,7 @@ class ModalChat extends React.Component {
                           >
                             <p style={{ fontSize: "10px" }}>
                               {message.date.split(" ")[0]} à{" "}
-                              {message.date.split(" ")[1]}
+                              {message.date.split(" ")[1].slice(0, -3)}
                             </p>
                             <div className="myMessages" key={index}>
                               {message.who.pictures ? (
@@ -178,7 +178,7 @@ class ModalChat extends React.Component {
                             </div>
                             <p style={{ fontSize: "10px" }}>
                               {message.date.split(" ")[0]} à{" "}
-                              {message.date.split(" ")[1]}
+                              {message.date.split(" ")[1].slice(0, -3)}
                             </p>
                           </li>
                         );
