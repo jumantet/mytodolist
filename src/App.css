@@ -61,7 +61,7 @@ html {
 }
 .taskCategory {
   display: "flex";
-  background-color: var(--category-background-color);
+  background-color: #dcdcdcad;
   flex-direction: column;
   min-width: 310px;
   min-height: 350px;
