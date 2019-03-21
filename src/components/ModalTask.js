@@ -39,6 +39,7 @@ class ModalTask extends React.Component {
           crossOrigin="anonymous"
         />
         <Modal
+          onRequestClose={this.props.onRequestClose}
           ariaHideApp={false}
           isOpen={this.props.isOpen}
           closeTimeoutMS={0}
@@ -56,12 +57,11 @@ class ModalTask extends React.Component {
             <h2 style={{ color: "var(--main-font-color)" }}>
               Ajout d'une tâche
             </h2>
-            <button
-              style={{ height: "20px", cursor: "pointer" }}
+            <i
+              style={{ fontSize: "20px", cursor: "pointer" }}
               onClick={this.props.onRequestClose}
-            >
-              <i className="fas fa-times" />
-            </button>
+              className="fas fa-times"
+            />
           </div>
           <form
             onSubmit={this.handleSubmit}

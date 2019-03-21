@@ -43,7 +43,7 @@ class Header extends React.Component {
               onClick={this.props.handleOpenModalChat}
               style={{
                 color: "white",
-                fontSize: "30px",
+                fontSize: "20px",
                 cursor: "pointer"
               }}
               className="fas fa-comments"
@@ -65,7 +65,7 @@ class Header extends React.Component {
               onClick={this.props.handleOpenModalHistoric}
               style={{
                 color: "white",
-                fontSize: "30px",
+                fontSize: "20px",
                 marginLeft: "10px",
                 cursor: "pointer"
               }}
@@ -113,7 +113,7 @@ class Header extends React.Component {
                 style={{ width: "100px", fontSize: "12px" }}
                 className="addTask"
               >
-                Se déconnecter
+                Déconnexion
               </button>
             </div>
           </div>

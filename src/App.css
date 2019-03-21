@@ -25,7 +25,7 @@ html {
 
 .addTask {
   border-radius: 10px;
-  border: none;
+  border: "solid 1px #66cdaa";
   padding: 5px;
   width: 200px;
   background-color: var(--main-font-color);
@@ -118,7 +118,7 @@ html {
 
 .tasks:hover {
   background-color: var(--background-color);
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .fa-times-circle {
@@ -150,4 +150,9 @@ html {
   text-align: center;
   margin: 5px;
   display: inline-block;
+}
+
+.bin {
+  filter: brightness(0) invert(1);
+  width: 100px;
 }

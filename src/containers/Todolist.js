@@ -21,6 +21,7 @@ class Todolist extends React.Component {
     tasksFuture: [],
     events: [],
     users: [],
+    isDragged: false,
     draggedTask: {},
     isModalOpen: false,
     isModalDeleteTaskOpen: false,
@@ -269,7 +270,8 @@ class Todolist extends React.Component {
   onDrag = (event, task) => {
     event.preventDefault();
     this.setState({
-      draggedTask: task
+      draggedTask: task,
+      isDragged: true
     });
   };
 
@@ -303,7 +305,8 @@ class Todolist extends React.Component {
         this.setState({
           tasksDoing: [...tasksDoing, draggedTask],
           tasksDone: origin.filter(task => task._id !== draggedTask._id),
-          draggedTask: {}
+          draggedTask: {},
+          isDragged: false
         });
         this.componentDidMount();
       } else if (destination === "todo") {
@@ -324,11 +327,14 @@ class Todolist extends React.Component {
         this.setState({
           tasksFuture: [...tasksFuture, draggedTask],
           tasksDone: origin.filter(task => task._id !== draggedTask._id),
-          draggedProjet: {}
+          draggedTask: {},
+          isDragged: false
         });
         this.componentDidMount();
       } else if (destination === "bin") {
         this.handleOpenModalDelete();
+      } else if (destination === "done") {
+        this.setState({ draggedTask: {}, isDragged: false });
       }
     } else if (draggedTask.status === "doing") {
       origin = [...this.state.tasksDoing];
@@ -349,7 +355,8 @@ class Todolist extends React.Component {
         this.setState({
           tasksDone: [...tasksDone, draggedTask],
           tasksDoing: origin.filter(task => task._id !== draggedTask._id),
-          draggedTask: {}
+          draggedTask: {},
+          isDragged: false
         });
         this.componentDidMount();
       } else if (destination === "todo") {
@@ -369,11 +376,14 @@ class Todolist extends React.Component {
         this.setState({
           tasksFuture: [...tasksFuture, draggedTask],
           tasksDoing: origin.filter(task => task._id !== draggedTask._id),
-          draggedTask: {}
+          draggedTask: {},
+          isDragged: false
         });
         this.componentDidMount();
       } else if (destination === "bin") {
         this.handleOpenModalDelete();
+      } else if (destination === "doing") {
+        this.setState({ draggedTask: {}, isDragged: false });
       }
     } else if (draggedTask.status === "todo") {
       origin = [...this.state.tasksFuture];
@@ -394,7 +404,8 @@ class Todolist extends React.Component {
         this.setState({
           tasksDone: [...tasksDone, draggedTask],
           tasksFuture: origin.filter(task => task._id !== draggedTask._id),
-          draggedTask: {}
+          draggedTask: {},
+          isDragged: false
         });
         this.componentDidMount();
       } else if (destination === "doing") {
@@ -414,11 +425,14 @@ class Todolist extends React.Component {
         this.setState({
           tasksDoing: [...tasksDoing, draggedTask],
           tasksFuture: origin.filter(task => task._id !== draggedTask._id),
-          draggedTask: {}
+          draggedTask: {},
+          isDragged: false
         });
         this.componentDidMount();
       } else if (destination === "bin") {
         this.handleOpenModalDelete();
+      } else if (destination === "todo") {
+        this.setState({ draggedTask: {}, isDragged: false });
       }
     }
   };
@@ -712,21 +726,28 @@ class Todolist extends React.Component {
             </div>
           </div>
         </div>
-        <div
-          onDrop={event => this.onDrop(event, "bin")}
-          onDragOver={event => this.onDragOver(event)}
-          className="bin"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center"
-          }}
-        >
-          <i className="far fa-times-circle" />
-          <p style={{ fontWeight: "bold", color: "white", fontSize: "16px" }}>
-            Supprimer une tâche
-          </p>
-        </div>
+        {this.state.isDragged ? (
+          <div
+            onDrop={event => this.onDrop(event, "bin")}
+            onDragOver={event => this.onDragOver(event)}
+            className="bin"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center"
+            }}
+          >
+            {/* <i className="far fa-times-circle" />
+            <p style={{ fontWeight: "bold", color: "white", fontSize: "16px" }}>
+              Supprimer une tâche
+            </p> */}
+            <img
+              alt="bin"
+              className="bin"
+              src={require("../assets/images/bin.png")}
+            />
+          </div>
+        ) : null}
       </div>
     );
   }

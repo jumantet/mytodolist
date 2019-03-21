@@ -62,6 +62,7 @@ class ModalChat extends React.Component {
           crossOrigin="anonymous"
         />
         <Modal
+          onRequestClose={this.props.onRequestClose}
           ariaHideApp={false}
           isOpen={this.props.isOpen}
           closeTimeoutMS={0}
@@ -71,12 +72,11 @@ class ModalChat extends React.Component {
         >
           <div style={{ width: "100%" }}>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
-              <button
-                style={{ height: "20px", cursor: "pointer" }}
+              <i
+                style={{ fontSize: "20px", cursor: "pointer" }}
                 onClick={this.props.onRequestClose}
-              >
-                <i className="fas fa-times" />
-              </button>
+                className="fas fa-times"
+              />
             </div>
             <h2
               style={{
