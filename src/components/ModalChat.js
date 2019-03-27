@@ -97,6 +97,7 @@ class ModalChat extends React.Component {
                 overflow: "hidden",
                 overflowY: "scroll",
                 justifyContent: "center",
+                alignItems: "center",
                 borderRadius: "5px",
                 border: "solid 2px var(--main-font-color)",
                 backgroundColor: "#dcdcdcad",
@@ -105,7 +106,9 @@ class ModalChat extends React.Component {
             >
               <ul
                 style={{
-                  width: "80%"
+                  width: "80%",
+                  padding: 0,
+                  paddingTop: "20px"
                   //   display: "flex",
                   //   height: "200px",
                   //   flexDirection: "column",
@@ -124,7 +127,6 @@ class ModalChat extends React.Component {
                           <li
                             key={message._id}
                             style={{
-                              marginBottom: "10px",
                               display: "flex",
                               alignItems: "center",
                               justifyContent: "space-between"
@@ -143,11 +145,12 @@ class ModalChat extends React.Component {
                                     width: "30px",
                                     height: "30px",
                                     borderRadius: "50%",
-                                    marginRight: "10px"
+                                    marginRight: "10px",
+                                    alignSelf: "center"
                                   }}
                                 />
                               ) : null}
-                              {message.message}
+                              <p>{message.message}</p>
                             </div>
                           </li>
                         );
@@ -156,14 +159,13 @@ class ModalChat extends React.Component {
                           <li
                             key={message._id}
                             style={{
-                              marginBottom: "10px",
                               display: "flex",
                               alignItems: "center",
                               justifyContent: "space-between"
                             }}
                           >
                             <div className="chatMessages" key={index}>
-                              {message.message}
+                              <p>{message.message}</p>
                               {message.who.pictures ? (
                                 <img
                                   src={message.who.pictures}
@@ -172,7 +174,8 @@ class ModalChat extends React.Component {
                                     width: "30px",
                                     height: "30px",
                                     borderRadius: "50%",
-                                    marginRight: "10px"
+                                    marginLeft: "10px",
+                                    alignSelf: "center"
                                   }}
                                 />
                               ) : null}
@@ -226,7 +229,7 @@ class ModalChat extends React.Component {
                     <button
                       type="submit"
                       value="Submit"
-                      className="addTask"
+                      className="sendMessage"
                       style={{
                         width: "100px",
                         fontSize: "12px",

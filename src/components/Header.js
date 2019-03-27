@@ -111,7 +111,7 @@ class Header extends React.Component {
               <button
                 onClick={this.props.disconnect}
                 style={{ width: "100px", fontSize: "12px" }}
-                className="addTask"
+                className="sendMessage"
               >
                 Déconnexion
               </button>

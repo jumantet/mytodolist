@@ -269,6 +269,7 @@ class Todolist extends React.Component {
   };
   onDrag = (event, task) => {
     event.preventDefault();
+    event.target.style.borderRadius = "5px";
     this.setState({
       draggedTask: task,
       isDragged: true
@@ -730,7 +731,6 @@ class Todolist extends React.Component {
           <div
             onDrop={event => this.onDrop(event, "bin")}
             onDragOver={event => this.onDragOver(event)}
-            className="bin"
             style={{
               display: "flex",
               flexDirection: "column",

@@ -7,7 +7,6 @@ const url = "https://mytodolist-api.herokuapp.com/";
 class Home extends React.Component {
   render() {
     const responseFacebook = async response => {
-      console.log(response);
       try {
         if (response) {
           let firstName = response.name.split(" ")[0];

@@ -35,6 +35,19 @@ html {
   font-weight: bold;
   cursor: pointer;
 }
+
+.sendMessage {
+  border-radius: 10px;
+  border: "solid 1px #66cdaa";
+  padding: 5px;
+  width: 200px;
+  background-color: white;
+  color: var(--main-font-color);
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
 /*tasks*/
 #tasks {
   font-family: "Libre Franklin", sans-serif;
@@ -92,7 +105,8 @@ html {
   display: flex;
   justify-content: space-between;
   padding: 5px 10px;
-  width: 50%;
+  max-width: 70%;
+  align-items: "center";
   margin-bottom: 10px;
   background-color: white;
   border-radius: 5px;
@@ -102,9 +116,9 @@ html {
 }
 
 .myMessages {
-  width: 50%;
+  min-width: 50%;
+  max-width: 70%;
   display: flex;
-  align-self: flex-end;
   justify-content: space-between;
   align-items: "center";
   padding: 5px 10px;
@@ -128,6 +142,10 @@ html {
 
 .fa-times {
   color: white;
+  transition: all 0.2s ease-in-out;
+}
+.fa-times:hover {
+  transform: scale(1.2);
 }
 
 .fa-check {
@@ -155,4 +173,9 @@ html {
 .bin {
   filter: brightness(0) invert(1);
   width: 80px;
+  transition: all 0.2s ease-in-out;
+}
+
+.bin:hover {
+  transform: scale(1.5);
 }
